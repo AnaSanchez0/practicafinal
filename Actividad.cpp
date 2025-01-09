@@ -1,25 +1,25 @@
-#ifndef ACTIVIDAD_HPP
-#define ACTIVIDAD_HPP
+#include "Actividad.hpp"
 
-#include <string>
-using namespace std;
+Actividad::Actividad(const string &tit) : titulo(tit), estaCompletada(false) {}
 
-class Actividad {
-protected:
-    string titulo;
-    bool estaCompletada;
+Actividad::~Actividad() {}
 
-public:
-    Actividad(const string &tit);
-    virtual ~Actividad();
+void Actividad::completar() {
+    estaCompletada = true;
+}
 
-    virtual void mostrar() const = 0;
-    void completar();
+string Actividad::get_titulo() const {
+    return titulo;
+}
 
-    string get_titulo() const;
-    void set_titulo(const string &t);
-    bool get_estaCompletada() const;
-    void set_estaCompletada(bool estado);
-};
+void Actividad::set_titulo(const string &t) {
+    titulo = t;
+}
 
-#endif
+bool Actividad::get_estaCompletada() const {
+    return estaCompletada;
+}
+
+void Actividad::set_estaCompletada(bool estado) {
+    estaCompletada = estado;
+}
