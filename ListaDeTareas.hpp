@@ -5,9 +5,9 @@
 #include <vector>
 #include <string>
 
+// Creamos una clase vector, para agrupar las tareas en una lista
 class ListaDeTareas {
 private:
-    // Creamos una clase vector, para agrupar las tareas en una lista
     vector<Tarea*> tareas;
 
 public:
