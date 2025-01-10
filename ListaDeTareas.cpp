@@ -1,18 +1,20 @@
+// Librerías
 #include "ListaDeTareas.hpp"
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
 
+//Acceso espacio nombres
 using namespace std;
 
-// Desarrollo de los métodos
+// Desarrollo de los métodos:
 
-// Método para añadir una tarea a la lista
+// 1. Para añadir una tarea a la lista
 void ListaDeTareas::agregarTarea(Tarea* tarea) {
     tareas.push_back(tarea);
 }
 
-// Método para eliminar una tarea de la lista 
+// 2. Para eliminar una tarea de la lista 
 void ListaDeTareas::eliminarTarea(const string &titulo) {
     // Recorremos todo el vector con un bucle for
     for (auto it = tareas.begin(); it != tareas.end(); it++) {
@@ -35,7 +37,7 @@ void ListaDeTareas::eliminarTarea(const string &titulo) {
     // Mostramos un error si no encontramos la tarea
     throw runtime_error("Tarea no encontrada");
 }
-// Método para mostrar todas las tareas de la lista
+// 3. Mostrar todas las tareas de la lista
 void ListaDeTareas::mostrarTareas() const {
     // Si no hay tareas en el vector, mandamos un mensaje
     if (tareas.empty()) {
@@ -59,7 +61,7 @@ void ListaDeTareas::mostrarTareas() const {
     }
 }
 
- // Método para añadir las tareas desde un archivo
+ // 4. Añadir las tareas desde un archivo
 void ListaDeTareas::cargarDesdeArchivo(const string &nombreArchivo) {
     // Liberamos memoria antes de cargar el archivo
     for (Tarea* tarea : tareas) {
@@ -92,7 +94,7 @@ void ListaDeTareas::cargarDesdeArchivo(const string &nombreArchivo) {
     archivo.close();
 }
 
-// Método para guardar las tareas en un archivo
+// 5. Guardar las tareas en un archivo
 void ListaDeTareas::guardarEnArchivo(const string &nombreArchivo) const {
     // Abrimos el archivo para escritura
     ofstream archivo(nombreArchivo, ios::out);
